@@ -11,13 +11,13 @@ Gem::Specification.new do |spec|
   spec.summary = "Rack middleware for safelisting IP addresses in DigitalOcean's App Platform"
   spec.description = "Rack middleware for safelisting IP addresses using an environment variables in DigitalOcean's " \
                      "App Platform"
-  spec.homepage = "https://github.com/blafri/rack_do_app_platform_whitelist"
+  spec.homepage = "https://github.com/blafri/rack_do_app_platform_safelist"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/blafri/rack_do_app_platform_whitelist"
-  spec.metadata["changelog_uri"] = "https://github.com/blafri/rack_do_app_platform_whitelist/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/blafri/rack_do_app_platform_safelist"
+  spec.metadata["changelog_uri"] = "https://github.com/blafri/rack_do_app_platform_safelist/blob/main/CHANGELOG.md"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.

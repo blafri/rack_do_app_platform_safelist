@@ -41,11 +41,13 @@ a) For __rails__ applications.
 
 require "rack_do_app_platform_safelist"
 
-Rails.application.config.middleware.insert_before(0, RackDoAppPlatformSafelist, logger: Rails.logger)
+if Rails.env.production?
+  Rails.application.config.middleware.insert_before(0, RackDoAppPlatformSafelist, logger: Rails.logger)
+end
 ```
 
 This will insert the middleware at the top of the middleware stack so it can block request before reaching any other
-middleware in your application
+middleware in your application. You would only want to enable this middleware in production.
 
 b) For __rack__ applications:
 
@@ -58,7 +60,9 @@ use RackDoAppPlatformSafelist
 run App.new
 ```
 
-If you want to use a different environment variable for the whitelisted IPs you can pass it as an argument
+### Options
+
+If you want to use a different environment variable for the safelisted IPs you can pass it as an argument
 
 a) For __rails__ applications.
 
