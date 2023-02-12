@@ -2,11 +2,13 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in rack_do_app_platform_safelist.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
-
+gem "debug", "~> 1.7"
 gem "minitest", "~> 5.0"
-
-gem "rubocop", "~> 1.21"
+gem "rack-test", "~> 2.0"
+gem "rake", "~> 13.0"
+gem "rubocop"
+gem "rubocop-minitest"
+gem "rubocop-rake"
+gem "simplecov", "~> 0.22"
