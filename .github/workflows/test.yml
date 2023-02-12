@@ -9,20 +9,14 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: ['3.0', '3.1']
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Test & publish code coverage
-      uses: paambaati/codeclimate-action@v3.2.0
-      env:
-        CC_TEST_REPORTER_ID: 7ddf1843640e3ff5c1af21115ece009faf3e336802f78e2bd1bcafee55b1dd83
-      with:
-        coverageCommand: bundle exec rake test
-        debug: true
+    - name: Install RVM
+      run: gpg2 --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+      run: curl -sSL https://get.rvm.io | bash -s stable
+      run: source /etc/profile.d/rvm.sh
+    - name: Install Ruby
+      run: rvm install 3.1.2
+      run: bundle install
+    - name: Run tests
+      run: bundle exec rake test
