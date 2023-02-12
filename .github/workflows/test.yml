@@ -28,3 +28,8 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake test
+    - name: Test & publish code coverage
+      if: matrix.ruby-version == '3.1'
+      uses: paambaati/codeclimate-action@v3.2.0
+      env:
+        CC_TEST_REPORTER_ID: 7ddf1843640e3ff5c1af21115ece009faf3e336802f78e2bd1bcafee55b1dd83
