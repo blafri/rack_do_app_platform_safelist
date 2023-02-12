@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack_do_app_platform_safelist (1.0.0)
+    rack_do_app_platform_safelist (1.0.1)
 
 GEM
   remote: https://rubygems.org/
